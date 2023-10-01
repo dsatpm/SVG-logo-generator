@@ -1,7 +1,7 @@
 // Imported programs required for this application
 const fs = require('fs-extra');
 const inquirer = require('inquirer');
-const buildSVG = require('./public/scripts/svg-builder.js');
+const buildSVG = require('./lib/svg-builder.js');
 
 // Function that takes user input and generates a logo
 async function generateLogo() {
