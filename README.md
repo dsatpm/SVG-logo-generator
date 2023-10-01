@@ -47,9 +47,12 @@ You can use the application by following these steps:
 #### Run in your Terminal
 
 _Important!_ **MAKE SURE YOU ARE IN THE CORRECT DIRECTORY**
-![demo](./public/images/demo1.png)
+<br>
+![demo](./public/images/demo1.png)<br>
+<br>
 Follow prompts
-![demo](./public/images/demo2.png)
+<br>
+![demo](./public/images/demo2.png)<br>
 #### Your logo has been created!
 
 #### Finished product:
