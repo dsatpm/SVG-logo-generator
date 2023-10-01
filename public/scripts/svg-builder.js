@@ -43,7 +43,7 @@ function buildSVG(userParams) {
       textAlign = `<text x="50%" y="35%" text-anchor="middle" dominant-baseline="middle" font-size="60" font-weight="bold" fill="${textColor}">${logo}</text>`;
       break;
     case 'Circle':
-      const circle = new Circle(colorChoice, 195);
+      const circle = new Circle(colorChoice, 200);
         shapeStyle = circle.getSvgParams(textColor);
       viewBox = '0 0 400 400';
       textAlign = `<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="140" font-weight="bold" fill="${textColor}">${logo}</text>`;
