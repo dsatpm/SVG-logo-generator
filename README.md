@@ -54,7 +54,6 @@ _Important!_ **MAKE SURE YOU ARE IN THE CORRECT DIRECTORY**
 Follow prompts
 <br>
 ![demo](./public/images/demo2.png)<br>
-#### Your logo has been created!
 
 #### Finished product:
 ![demo](./public/images/demo3.png)
