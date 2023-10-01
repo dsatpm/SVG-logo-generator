@@ -48,6 +48,7 @@ You can use the application by following these steps:
 
 _Important!_ **MAKE SURE YOU ARE IN THE CORRECT DIRECTORY**
 <br>
+<br>
 ![demo](./public/images/demo1.png)<br>
 <br>
 Follow prompts
