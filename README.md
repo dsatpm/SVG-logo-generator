@@ -49,14 +49,14 @@ You can use the application by following these steps:
 _Important!_ **MAKE SURE YOU ARE IN THE CORRECT DIRECTORY**
 <br>
 <br>
-![demo](./public/images/demo1.png)<br>
+![demo](./lib/images/demo1.png)<br>
 <br>
 Follow prompts
 <br>
-![demo](./public/images/demo2.png)<br>
+![demo](./lib/images/demo2.png)<br>
 
 #### Finished product:
-![demo](./public/images/demo3.png)
+![demo](./lib/images/demo3.png)
 
 ### Live Demo:
 [Here](https://drive.google.com/file/d/1n576b_oTPsJy7pzm8paIMHzRXsY0SQmZ/view?usp=sharing) is the demo.
