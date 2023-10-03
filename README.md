@@ -1,6 +1,6 @@
 # SVG Logo Creator
 
-This is an application that utilized Node.js to create an SVG file which displays a logo of the user's choice, as well as the color that the user chooses. You can also enter customized colors using either the color name, or hexadecimal properties to create the color. You can view the live demo [here](https://drive.google.com/file/d/1n576b_oTPsJy7pzm8paIMHzRXsY0SQmZ/view?usp=sharing)
+This is an application that utilized Node.js to create an SVG file which displays a logo of the user's choice, as well as the color that the user chooses. You can also enter customized colors using either the color name, or hexadecimal properties to create the color. You can view the live demo [here](https://drive.google.com/file/d/1UyfkRGGE6WRGDh66sptIgCGhKC_bGknn/view)
 
 -   Creating a logo has never been made easier!
 -   This program can be useful for a user or company to create a placeholder logo
@@ -59,7 +59,7 @@ Follow prompts
 ![demo](./lib/images/demo3.png)
 
 ### Live Demo:
-[Here](https://drive.google.com/file/d/1n576b_oTPsJy7pzm8paIMHzRXsY0SQmZ/view?usp=sharing) is the demo.
+[Here](https://drive.google.com/file/d/1UyfkRGGE6WRGDh66sptIgCGhKC_bGknn/view) is the demo.
 
 
 ## Credits
