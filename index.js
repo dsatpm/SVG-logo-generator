@@ -1,12 +1,14 @@
-// Imported programs required for this application
-const fs = require('fs-extra');
-const inquirer = require('inquirer');
-const buildSVG = require('./lib/svg-builder.js');
+// Imported libraries
+const fs = require('fs-extra'); // File system operation
+const inquirer = require('inquirer'); // User prompt library
+const buildSVG = require('./lib/svg-builder.js'); // Custom library to build SVG
+const Color = require('color'); // Color validation library
 
 // Function that takes user input and generates a logo
 async function generateLogo() {
 	try {
 		const logoParams = await inquirer.prompt([
+			// Input prompts for logo parameters
 			{
 				type: 'input',
 				name: 'logo',
@@ -28,21 +30,20 @@ async function generateLogo() {
 				message: 'Choose your text color',
 				choices: ['Black', 'White', 'Royal Blue', 'Tomato', 'Custom'],
 
-				// Converts choice to lower case and removes spaces to plug into image generator
+				// Converts choice to lower case and removes spaces for processing
 				filter: (choice) =>
 					choice.toLowerCase().replace(/ /g, '') === 'custom'
 						? 'custom'
 						: choice.toLowerCase().replace(/ /g, ''),
 			},
 
-			// Allows a user to enter a custom color
+			// Allows a user to enter a custom text color
 			{
 				type: 'input',
 				name: 'customTextColor',
 				message:
 					'Enter your custom text color (can be hexadecimal(#000808) or color name)',
-				filter: (choice) =>
-					choice.toLowerCase().replace(/ /g, ''),
+				filter: (choice) => choice.toLowerCase().replace(/ /g, ''),
 				when: (answers) => answers.textColor === 'custom',
 			},
 
@@ -52,26 +53,25 @@ async function generateLogo() {
 				message: 'Pick the color you want the shape to be',
 				choices: ['Black', 'Dark Red', 'Olive', 'Hot Pink', 'Custom'],
 
-				// Converts choice to lower case and removes spaces to plug into image generator
+				// Converts choice to lower case and removes spaces for processing
 				filter: (choice) =>
 					choice.toLowerCase().replace(/ /g, '') === 'custom'
 						? 'custom'
 						: choice.toLowerCase().replace(/ /g, ''),
 			},
 
-			// Allows user to enter a custom color
+			// Allows user to enter a custom shape fill color
 			{
 				type: 'input',
 				name: 'customShapeColor',
 				message:
 					'Enter your custom shape color (can be hexadecimal (#181818) or color name)',
-				filter: (choice) =>
-					choice.toLowerCase().replace(/ /g, ''),
+				filter: (choice) => choice.toLowerCase().replace(/ /g, ''),
 				when: (answers) => answers.colorChoice === 'custom',
 			},
 		]);
 
-		// Creates object variable that store all user parameters into 'logoParams'
+		// Destructures user input into an object
 		const {
 			logo,
 			shape,
@@ -81,11 +81,21 @@ async function generateLogo() {
 			customShapeColor,
 		} = logoParams;
 
-		// Variables that change depending on user selection
-		const textColorChoice = customTextColor || textColor;
-		const shapeColorChoice = customShapeColor || colorChoice;
+		// Determines text and shape colors depending on user input
+		const textColorChoice =
+			textColor === 'custom' ? customTextColor : textColor;
+		const shapeColorChoice =
+			colorChoice === 'custom' ? customShapeColor : colorChoice;
 
-		// Variable declaration that user pulls info from 'svg-builder.js'
+		// Validate chosen custom colors
+		if (!validColor(textColorChoice) || !validColor(shapeColorChoice)) {
+			console.error(
+				"One of the custom colors was invalid. Please use hexadecimal (include '#') values or color names."
+			);
+			return;
+		}
+
+		// Create SVG logo using user input values
 		const svgCreator = buildSVG({
 			logo,
 			shape,
@@ -93,7 +103,7 @@ async function generateLogo() {
 			colorChoice: shapeColorChoice,
 		});
 
-		// Writes a file to 'examples' directory and names the file 'logo.svg'
+		// Write the generated SVG logo to a file in 'examples' directory
 		await fs.writeFile('./examples/logo.svg', svgCreator);
 		console.log('Generated logo.svg');
 	} catch (error) {
@@ -101,5 +111,17 @@ async function generateLogo() {
 	}
 }
 
-// Runs function upon running 'index.js'
+// Function to validate color choices
+function validColor(color) {
+	try {
+		// Use 'color' library to validate color format
+		Color(color);
+		return true;
+	} catch (error) {
+		// Return false if format is invalid
+		return false;
+	}
+}
+
+// Runs logo generating function when script is executed
 generateLogo();
